@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Etec.Aula2802.MCV.Models.Fornecedor>
+
+@{
+    ViewData["Title"] = "Lista";
+}
+
+<h2>Lista</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.cdFornecedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nmFornecedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CPNJ)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.endereco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cdFornecedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nmFornecedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CPNJ)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.endereco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefone)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

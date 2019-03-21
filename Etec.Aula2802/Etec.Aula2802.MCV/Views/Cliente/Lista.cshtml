@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Etec.Aula2802.MCV.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Lista";
+}
+
+<h2>Lista</h2>
+
+<p>
+    <a asp-action="Cadastrar">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.cdCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nmCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dtNascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.peso)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cdCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nmCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dtNascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.peso)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Editar", new { id=item.cdCliente }) |
+                @Html.ActionLink("Details", "Detalhes", new { id=item.cdCliente }) |
+                @Html.ActionLink("Delete", "Deletar", new { id=item.cdCliente })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

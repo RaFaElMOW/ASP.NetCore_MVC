@@ -1,0 +1,48 @@
+﻿@model Etec.Aula2802.MCV.Models.Produto
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Produto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cdProduto)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.cdProduto)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.nmProduto)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.nmProduto)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.valor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.valor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.descricao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.descricao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.quantidade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.quantidade)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
