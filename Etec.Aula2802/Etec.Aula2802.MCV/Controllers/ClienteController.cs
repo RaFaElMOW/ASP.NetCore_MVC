@@ -24,52 +24,10 @@ namespace Etec.Aula2802.MCV.Controllers
 
         public ActionResult Lista()
         {
-            Models.Cliente cliente0 = new Models.Cliente();
-            cliente0.cdCliente = 1;
-            cliente0.nmCliente = "Rafael";
-            cliente0.peso = decimal.Parse("57,25");
-            cliente0.dtNascimento = DateTime.Parse("10/07/1995");
-
-            Models.Cliente cliente1 = new Models.Cliente();
-            cliente1.cdCliente = 2;
-            cliente1.nmCliente = "João";
-            cliente1.peso = decimal.Parse("52,17");
-            cliente1.dtNascimento = DateTime.Parse("10/10/1995");
-
-            Models.Cliente cliente2 = new Models.Cliente();
-            cliente2.cdCliente = 3;
-            cliente2.nmCliente = "Frodo";
-            cliente2.peso = decimal.Parse("53,25");
-            cliente2.dtNascimento = DateTime.Parse("01/05/1993");
-
-            Models.Cliente cliente3 = new Models.Cliente();
-            cliente3.cdCliente = 4;
-            cliente3.nmCliente = "Florentino";
-            cliente3.peso = decimal.Parse("80,50");
-            cliente3.dtNascimento = DateTime.Parse("08/12/1991");
-
-            Models.Cliente cliente4 = new Models.Cliente();
-            cliente4.cdCliente = 5;
-            cliente4.nmCliente = "Cleiton";
-            cliente4.peso = decimal.Parse("53,17");
-            cliente4.dtNascimento = DateTime.Parse("15/07/1995");
-
-            Models.Cliente cliente5 = new Models.Cliente();
-            cliente5.cdCliente = 6;
-            cliente5.nmCliente = "Eustácio";
-            cliente5.peso = decimal.Parse("42,07");
-            cliente5.dtNascimento = DateTime.Parse("22/07/2010");
+            Models.Data.ClienteData cd = new Models.Data.ClienteData();
 
 
-            List<Models.Cliente> lista = new List<Models.Cliente>();
-            lista.Add(cliente0);
-            lista.Add(cliente1);
-            lista.Add(cliente2);
-            lista.Add(cliente3);
-            lista.Add(cliente4);
-            lista.Add(cliente5);
-
-            return View(lista);
+            return View(cd.SelecionarTodos());
         }
 
         // GET: Cliente/Create
