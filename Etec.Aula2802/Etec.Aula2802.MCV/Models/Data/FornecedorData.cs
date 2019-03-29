@@ -11,7 +11,7 @@ namespace Etec.Aula2802.MCV.Models.Data
     {
         public List<Fornecedor> SelecionarTodos()
         {
-            MySqlConnection msc = new MySqlConnection("server 127.0.0.1; uid=root; pwd=1234567; database=db_aula2103");
+            MySqlConnection msc = new MySqlConnection("server=127.0.0.1; uid=root; pwd=1234567; database=db_aula2103");
             msc.Open();
 
             MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_fornecedor",msc);

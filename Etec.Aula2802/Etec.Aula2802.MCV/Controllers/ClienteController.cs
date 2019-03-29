@@ -19,7 +19,8 @@ namespace Etec.Aula2802.MCV.Controllers
         // GET: Cliente/Details/5
         public ActionResult Detalhes(int id)
         {
-            return View();
+            Models.Data.ClienteData clienteData = new Models.Data.ClienteData();
+            return View(clienteData.SelecionarPorCodigo(id));
         }
 
         public ActionResult Lista()
@@ -41,6 +42,8 @@ namespace Etec.Aula2802.MCV.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Cadastrar(Models.Cliente collection)
         {
+            Models.Data.ClienteData clienteData = new Models.Data.ClienteData();
+            clienteData.InserirCliente(collection);
             try
             {
                 using (TextWriter tw = new StreamWriter(@"C:\Inputs\LogCliente.txt", true))
@@ -52,7 +55,7 @@ namespace Etec.Aula2802.MCV.Controllers
                     tw.WriteLine("Peso: " + collection.peso + "\n\n");
                 }
 
-                return RedirectToAction(nameof(Cadastrar));
+                return RedirectToAction(nameof(Lista));
             }
             catch
             {
@@ -63,7 +66,7 @@ namespace Etec.Aula2802.MCV.Controllers
         // GET: Cliente/Edit/5
         public ActionResult Editar(int id)
         {
-            Models.Cliente cliente = new Models.Cliente();
+            /*Models.Cliente cliente = new Models.Cliente();
             if (id == 1)
             {
                 cliente.cdCliente = 1;
@@ -118,7 +121,11 @@ namespace Etec.Aula2802.MCV.Controllers
                 cliente.nmCliente = "Cliente não encontrado";
             }
 
-            return View(cliente);
+            return View(cliente);*/
+
+            Models.Data.ClienteData clienteData = new Models.Data.ClienteData();
+
+            return View(clienteData.SelecionarPorCodigo(id));
         }
 
         // POST: Cliente/Edit/5
@@ -126,6 +133,8 @@ namespace Etec.Aula2802.MCV.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Editar(int id, Models.Cliente collection)
         {
+            Models.Data.ClienteData clienteData = new Models.Data.ClienteData();
+            clienteData.EditarCliente(id, collection);
             try
             {
                 using (TextWriter tw = new StreamWriter(@"C:\Inputs\LogCliente.txt", true))
@@ -137,7 +146,7 @@ namespace Etec.Aula2802.MCV.Controllers
                     tw.WriteLine("Peso: " + collection.peso + "\n\n");
                 }
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Lista));
             }
             catch
             {
