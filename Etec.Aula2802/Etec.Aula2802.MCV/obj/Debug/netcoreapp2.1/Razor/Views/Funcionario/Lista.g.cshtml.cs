@@ -63,7 +63,7 @@ using Etec.Aula2802.MCV.Models;
             WriteLiteral("\r\n<h2>Lista</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(130, 40, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "00985d18e65a4214b912495ace0180c5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "39a3ebc530374fffb279f057ccb1e83c", async() => {
                 BeginContext(156, 10, true);
                 WriteLiteral("Create New");
                 EndContext();

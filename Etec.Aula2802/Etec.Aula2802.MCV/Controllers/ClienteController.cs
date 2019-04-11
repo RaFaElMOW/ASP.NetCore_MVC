@@ -157,19 +157,29 @@ namespace Etec.Aula2802.MCV.Controllers
         // GET: Cliente/Delete/5
         public ActionResult Deletar(int id)
         {
-            return View();
+            Models.Data.ClienteData cliente = new Models.Data.ClienteData();
+            return View(cliente.SelecionarPorCodigo(id));
         }
 
         // POST: Cliente/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Deletar(int id, IFormCollection collection)
+        public ActionResult Deletar(int id, Models.Cliente collection)
         {
             try
             {
-                // TODO: Add delete logic here
+                Models.Data.ClienteData data = new Models.Data.ClienteData();
+                data.ExcluirCliente(id, collection);
+                using (TextWriter tw = new StreamWriter(@"C:\Inputs\LogCliente.txt", true))
+                {
+                    tw.WriteLine("Exclusão de dados");
+                    tw.WriteLine("Cod. Cliente: " + collection.cdCliente);
+                    tw.WriteLine("Nome Cliente: " + collection.nmCliente);
+                    tw.WriteLine("Data de Nascimento: " + collection.dtNascimento);
+                    tw.WriteLine("Peso: " + collection.peso + "\n\n");
+                }
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Lista));
             }
             catch
             {
