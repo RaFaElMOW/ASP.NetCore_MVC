@@ -169,7 +169,6 @@ namespace Etec.Aula2802.MCV.Controllers
             try
             {
                 Models.Data.ClienteData data = new Models.Data.ClienteData();
-                data.ExcluirCliente(id, collection);
                 using (TextWriter tw = new StreamWriter(@"C:\Inputs\LogCliente.txt", true))
                 {
                     tw.WriteLine("Exclusão de dados");
@@ -178,6 +177,7 @@ namespace Etec.Aula2802.MCV.Controllers
                     tw.WriteLine("Data de Nascimento: " + collection.dtNascimento);
                     tw.WriteLine("Peso: " + collection.peso + "\n\n");
                 }
+                data.ExcluirCliente(id, collection);
 
                 return RedirectToAction(nameof(Lista));
             }
